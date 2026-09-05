@@ -5,7 +5,7 @@ Streamlit frontend for PolicyPilot.
 import streamlit as st
 import requests
 
-API_URL = "http://127.0.0.1:8000"
+API_URL = "https://policypilot-api-c3yw.onrender.com"
 
 st.set_page_config(page_title="PolicyPilot", page_icon="📄")
 st.title("PolicyPilot")
