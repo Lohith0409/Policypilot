@@ -70,13 +70,13 @@ if user_question:
         st.markdown(user_question)
 
     with st.chat_message("assistant"):
-        with st.spinner("Searching policy documents..."):
+        with st.spinner("Searching policy documents... (first request after inactivity can take up to a minute while the server wakes up)"):
             try:
                 payload = {"question": user_question}
                 if st.session_state.session_id:
                     payload["session_id"] = st.session_state.session_id
 
-                response = requests.post(f"{API_URL}/ask", json=payload, timeout=30)
+                response = requests.post(f"{API_URL}/ask", json=payload, timeout=90)
                 response.raise_for_status()
                 data = response.json()
                 answer = data["answer"]
